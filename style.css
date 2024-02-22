@@ -1,0 +1,299 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #faf7f0;
+    height: 100dvh;
+    width: 100%;
+    margin: 0;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5%;
+    overflow: auto;
+}
+
+/*Page Header*/
+nav{
+  overflow: hidden;
+  background-color: #4c3f3a;
+  box-shadow: 0 0 10px rgb(107, 103, 103);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  width: 100%;
+  padding-right: 10px;
+  box-sizing: border-box;
+
+  
+  & h1 {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #bda198;
+    white-space: nowrap;
+  }
+
+  & button {
+    justify-self: flex-end;
+    margin-left: auto;
+    border-color: #bda198;
+    color: #bda198;
+    background-color:rgba(0, 0, 0, 0);
+    border-radius: 50px;
+    font-size: 200%;
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  & button:hover  {
+    background-color: #634e48;
+  }
+
+  & #helpPopup {
+    display: none;
+    background-color: #f4efe6;
+    border: 2px solid #4c3f3a;
+    z-index: 1;
+    box-shadow: 0 0 3px rgb(0, 0, 0);
+    text-align: left;
+    padding: 0 .5% 0 .5%;
+    max-height: 50%;
+    max-width: 25%;
+    overflow-y: auto;
+    position: absolute;
+    top: 4em;
+    right: 1em;
+  }
+}
+
+/*Main Container (Holds inputCalc & Output & Popup)*/
+#mainContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 100%;
+  gap: 3%
+}
+
+/* INPUT CONTAINER */
+#inputContainer {
+  border: 2px solid #4c3f3a;
+  border-radius: 15px;
+  background-color: #f4efe6; 
+  box-shadow: 0 0 5px rgb(107, 103, 103);
+  text-align: center;
+  color: #4c3f3a;
+  height: 90%;
+  width: 25%;
+  overflow: auto;
+
+  & #inputHeader {
+    padding-top: 2%;
+    padding-bottom: 1%;
+    font-size: larger;
+    border-bottom: 2px solid #4c3f3a;
+  }
+
+  & table {
+  width: 100%;
+  padding: 1%;
+  }
+
+  & select, input {
+    box-sizing: border-box;
+    width: 100%; 
+    padding: 10px;
+  }
+
+  &  button {
+    padding: 10px;
+    width: 25%;
+    word-wrap: break-word;
+  }
+}
+
+/* OUTPUT CONTAINER */
+#outputContainer {
+  border: 2px solid #4c3f3a;
+  border-radius: 15px;
+  background-color: #f4efe6; 
+  box-shadow: 0 0 5px rgb(107, 103, 103);
+  height: 10%;
+  width: 25%;
+  color: #4c3f3a;
+  display: inherit;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  font-size: auto;
+  overflow: clip;
+  white-space: nowrap;
+}
+
+/*Popup Container (Holds Weight Clac)*/
+#settingsPopup{
+  color: #4c3f3a;
+  visibility: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#weightCalc {
+  border: 2px solid #4c3f3a;
+  padding: .5%;
+  height: 50%;
+  width: 25%;
+  border-radius: 15px;
+  background-color: #f4efe6; 
+  box-shadow: 0 0 5px rgb(58, 56, 56);
+  overflow-y: auto;
+  text-align: center;  
+
+  & table {
+    width: 100%;
+    padding: 1%;
+  }
+
+  & input {
+    box-sizing: border-box; 
+    width: 100%; 
+    padding: 10px;
+  }
+
+  & button {
+    padding: 10px;
+    width: 30%;
+    word-wrap: break-word;
+  }
+
+  & #titleDiv input{
+    width: 70%;
+    text-align: center;
+  }
+
+}
+
+/*ADDING CLASSES*/
+#addingClass {
+  background-color: #bda198;
+  box-shadow: 0 0 3px rgb(107, 103, 103);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: .5%;
+  height: 10%;
+  width: 100%;
+  overflow-x: auto;
+
+  & button {
+    background-color: #4c3f3a;
+    color: #faf7f0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+    word-wrap: break-word;
+    font-size: 100%;
+  }
+
+  & button:hover {
+    background-color: #634e48; 
+    color: #faf7f0;
+  }
+
+  & table {
+    height: 80%;
+    width: 100%;
+  }
+}
+  
+
+/*Fixed View Different VP*/
+
+@media only screen and (max-width: 980px) {
+
+  #inputContainer {
+    width: 50%;
+  }
+
+  #outputContainer {
+  width: 50%;}
+
+  button {
+    font-size: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+  }
+  
+  #inputContainer button {
+      padding: 5px;
+      width: 30%;
+  }
+  
+  #weightCalc button {
+      padding: 5px;
+      width: 30%;
+  }
+
+  #weightCalc {
+    padding: 1%;
+    width: 50%; 
+  }
+  #helpPopup {
+    min-width: 35%; 
+    max-height: 50%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #inputContainer {
+    width: 80%;
+  }
+
+  #outputContainer {
+  width: 80%;}
+
+  #weightCalc {
+    width: 80%; 
+  }
+
+  #mainHeader{
+  
+    & button {
+      border-radius: 50px;
+      font-size: 150%;
+      width: 1.5em;
+      height: 1.5em;
+    }
+  
+    & #helpPopup {
+      position: absolute;
+      top: 4em;
+      right: 1em;
+    }
+  }  
+
+
+}
+
+/*J*/

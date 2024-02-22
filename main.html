@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css"> 
+    <script src="script.js"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+    <link rel="manifest" href="media/site.webmanifest">
+    <title>Personal Gradebook</title>
+</head>
+
+<body>
+    <nav>
+        <h1>Personal Gradebook</h1>
+        <button title="Help" onclick="helpPopup()" onmouse>?</button>
+        <div id="helpPopup">
+            <p>
+            This website can be used as a grade calculator or gradebook. To use the calculator follow the simple steps:
+            <ol>
+                <li>Add weights with "Edit Weight". Total sum = 100%. Naming them is optional.</li>
+                <li>When done press "Save & Close"</li>
+                <li>Add assingments by picking the weight and typing the grade%. You can put average grade for the category or list all assingments in the category using the same category weight.</li>
+                <li>If you decide to add more classes press the "+"" on the bottom and rename the class.</li>
+            </ol>
+            <em>It's important to stay consistent in the classes. Putting average grade and then adding individual assingments will result in an inaccurate calculation.</em>
+
+            </p>
+        </div>
+    </nav>
+    
+    <div id="mainContainer" oninput="storeUpdate()">
+        <div id="inputContainer">
+            <div id="inputHeader">
+            <b id="className">Class Name</b>
+            </div>
+            <form>
+                <table onchange="calculate()">
+                    <thead>
+                        <tr>
+                            <th>Weight</th>
+                            <th>Grade</th>    
+                        </tr>
+                    </thead>
+                    <tbody id="calcTable">
+                        <tr id="currentCTRow">
+                            <td>
+                                <select name="weightInputCT" class="selectWeight">
+                                    <option value="0">Select Weight</option>
+                                </select>
+                            </td>
+                            <td><input name="gradeInput" type="number" placeholder="Grade %"  min="0" max="100"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="weightInputCT" class="selectWeight">
+                                    <option value="0">Select Weight</option>
+                                </select>
+                            </td>
+                            <td><input name="gradeInput" type="number" placeholder="Grade %"  min="0" max="100"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="weightInputCT" class="selectWeight">
+                                    <option value="0">Select Weight</option>
+                                </select>
+                            </td>
+                            <td><input name="gradeInput" type="number" placeholder="Grade %"  min="0" max="100"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select name="weightInputCT" class="selectWeight">
+                                    <option value="0">Select Weight</option>
+                                </select>
+                            </td>
+                            <td><input name="gradeInput" type="number" placeholder="Grade %"  min="0" max="100"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <button title="Clear Grades" onclick="clearCTTable()">Clear</button>
+            <button title="Add Grade Row" onclick="addCTRow()">Add Row</button>
+            <button title="Edit Weights" id="weightButton" onclick="visibleWeight()">Edit Weight</button>
+        </div>
+
+        <div id="outputContainer">
+            <!-- <h2>Total Grade:</h2>
+            <h2 id="displayTotalGrade">0.00%</h2> -->
+            <h2>Current Grade:</h2>
+            <h2 id="displayCurrentGrade">0.00%</h2>
+        </div>
+
+        <div id="settingsPopup" onclick="backgroundClicked(event)">
+            <div id="weightCalc">
+                <div id="titleDiv" onchange="nameUpdate()">
+                    <b>Class Title: </b>
+                    <br>
+                    <input type="text" id="inputClassName" value="Class Name" placeholder="Class Name">
+                </div>
+                <form oninput="detectChange()">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Weight %</th>
+                                </tr>
+                            </thead>
+                            <tbody id="weightsTable">
+                                <tr id="currentWTRow">
+                                    <td><input type="text" class="inputNames" placeholder="Weight Category Name"></td>
+                                    <td><input type="number" class="weightInput" placeholder="Weight %" min="0" max="100"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="inputNames" placeholder="Weight Category Name"></td>
+                                    <td><input type="number" class="weightInput" placeholder="Weight %" min="0" max="100"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="inputNames" placeholder="Weight Category Name"></td>
+                                    <td><input type="number" class="weightInput" placeholder="Weight %" min="0" max="100"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </form>       
+                    <div>
+                        <button title="Clear Weights" onclick="clearWTTable()">Clear</button>
+                        <button title="Add Weight Row" onclick="addWeight()">Add Row</button>
+                        <button title="Save and Close" onclick="saveClose()">Save & Close</button>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="addingClass">
+        <table>
+            <tr id="displayClassRow">
+                <td><button onclick="openClass(event.target.id)" id="class1" class="buttonClass">unnamed</button></td>
+                <td><button title="New Class" onclick="newClass()"> + </button></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<!--J-->

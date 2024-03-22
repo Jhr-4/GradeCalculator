@@ -355,6 +355,7 @@ function newClass(){
 
     //clear name
     nameUpdateInput("unnamed");
+    storeUpdate();
 }
 
 function openClass(clickedClassID){
@@ -425,6 +426,9 @@ function loadButtons(){
     for (let i=0; i<reversedClassesArray.length; i++){
         document.getElementById(`class${i+1}`).innerText = reversedClassesArray[i];
     }
+
+    currentClassID = localStorage.getItem('currentClass');
+    document.getElementById(currentClassID).style.backgroundColor = '#634e48';
 }
 
 //J

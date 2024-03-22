@@ -1,2 +1,2 @@
-# gradebook
-A gradebook website
+# GradeCalculator
+A Grade Calculator Website 
